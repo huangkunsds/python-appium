@@ -1,0 +1,8 @@
+
+  {
+  deviceName: 88d04696,
+  platformName: Android,
+  platformVersion: 5.1.1,
+  appPackage: com.up366.mobile,
+  appActivity: .SplashActivity,
+  appEnviroment: 1}  # product:2，demo:1

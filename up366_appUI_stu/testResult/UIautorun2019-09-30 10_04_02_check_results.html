@@ -1,0 +1,1899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>天学网新版APP学生UI自动化测试</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>天学网新版APP学生UI自动化测试</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-09-30 10:04:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.021989</p>
+<p class='attribute'><strong>Status:</strong> Error 54</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.ProgressCount.MyCountTest.MyCounts</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>5</td>
+    <td><a href="javascript:showClassDetail('c1',5)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_choose_option</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: [32m2019-09-30 10:04:02[info]:MyCountTest.py开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\ProgressCount\MyCountTest.py", line 16, in setUp
+    self.driver=Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_click_choose</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: [32m2019-09-30 10:04:02[info]:MyCountTest.py开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\ProgressCount\MyCountTest.py", line 16, in setUp
+    self.driver=Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_click_count</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: [32m2019-09-30 10:04:02[info]:MyCountTest.py开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\ProgressCount\MyCountTest.py", line 16, in setUp
+    self.driver=Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_count_footer</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: [32m2019-09-30 10:04:02[info]:MyCountTest.py开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\ProgressCount\MyCountTest.py", line 16, in setUp
+    self.driver=Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_return</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        error</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: [32m2019-09-30 10:04:02[info]:MyCountTest.py开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\ProgressCount\MyCountTest.py", line 16, in setUp
+    self.driver=Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.activity.CurrentShowTest.current_show</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_likeBTN_show: 点赞</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: [32m2019-09-30 10:04:02[info]:CurrentShow.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\activity\CurrentShowTest.py", line 20, in setUp
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_resubmit_show: 重新提交：文字</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        error</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: [32m2019-09-30 10:04:02[info]:CurrentShow.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\activity\CurrentShowTest.py", line 20, in setUp
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>unittest.suite._ErrorHolder</td>
+    <td>15</td>
+    <td>0</td>
+    <td>0</td>
+    <td>15</td>
+    <td><a href="javascript:showClassDetail('c3',15)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>current_vote)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        error</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: [32m2019-09-30 10:04:02[info]:CurrentShow.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\activity\CurrentVoteTest.py", line 20, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.2' class='none'>
+    <td class='errorCase'><div class='testcase'>finished_vote)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.2')" >
+        error</a>
+
+    <div id='div_ft3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.2: [32m2019-09-30 10:04:02[info]:CurrentShow.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\activity\FinishedVoteShowTest.py", line 20, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.3' class='none'>
+    <td class='errorCase'><div class='testcase'>liveclass)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.3')" >
+        error</a>
+
+    <div id='div_ft3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.3: [32m2019-09-30 10:04:02[info]:CurrentShow.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\liveclass\liveClassTest.py", line 18, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.4' class='none'>
+    <td class='errorCase'><div class='testcase'>my_question)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.4')" >
+        error</a>
+
+    <div id='div_ft3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.4: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\question\MyQuestionTest.py", line 21, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.5' class='none'>
+    <td class='errorCase'><div class='testcase'>my_question)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.5')" >
+        error</a>
+
+    <div id='div_ft3.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.5: [32m2019-09-30 10:04:02[info]:NewQuestion.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\question\QuestionTest.py", line 21, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.6' class='none'>
+    <td class='errorCase'><div class='testcase'>gostudy)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.6')" >
+        error</a>
+
+    <div id='div_ft3.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.6: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\book\goStudyTest.py", line 18, in setUpClass
+    cls.driver = Caps.set_caps(cls)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.7' class='none'>
+    <td class='errorCase'><div class='testcase'>findcourse)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.7')" >
+        error</a>
+
+    <div id='div_ft3.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.7: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\findcourse\findCourseTest.py", line 22, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.8' class='none'>
+    <td class='errorCase'><div class='testcase'>changepwd)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.8')" >
+        error</a>
+
+    <div id='div_ft3.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.8: [32m2019-09-30 10:04:03[info]:messageTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\changepwd\changepwdTest.py", line 17, in setUpClass
+    cls.driver = Caps.set_caps(cls)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.9' class='none'>
+    <td class='errorCase'><div class='testcase'>Register)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.9')" >
+        error</a>
+
+    <div id='div_ft3.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.9: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\login\userRegisterTest.py", line 24, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.10' class='none'>
+    <td class='errorCase'><div class='testcase'>Login)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.10')" >
+        error</a>
+
+    <div id='div_ft3.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.10: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\login\userloginTest.py", line 20, in setUpClass
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.11' class='none'>
+    <td class='errorCase'><div class='testcase'>setup)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.11')" >
+        error</a>
+
+    <div id='div_ft3.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.11: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\setup\setUpTest.py", line 23, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.12' class='none'>
+    <td class='errorCase'><div class='testcase'>realname)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.12')" >
+        error</a>
+
+    <div id='div_ft3.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.12: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\userinfo\realNameTest.py", line 18, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.13' class='none'>
+    <td class='errorCase'><div class='testcase'>studentId)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.13')" >
+        error</a>
+
+    <div id='div_ft3.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.13: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\userinfo\studentIdTest.py", line 17, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.14' class='none'>
+    <td class='errorCase'><div class='testcase'>userClass)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.14')" >
+        error</a>
+
+    <div id='div_ft3.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.14: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\userinfo\userClassTest.py", line 18, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.15' class='none'>
+    <td class='errorCase'><div class='testcase'>userpicture)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.15')" >
+        error</a>
+
+    <div id='div_ft3.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.15: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\userinfo\userPictureTest.py", line 20, in setUpClass
+    cls.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.myclass.homeWorkTest.homework</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td>6</td>
+    <td><a href="javascript:showClassDetail('c4',6)">Detail</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_back: 测试返回按钮</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        error</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_default_homeworklist: 测试默认显示当前作业</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        error</a>
+
+    <div id='div_ft4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.2: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_enter_homework: 测试进入作业列表页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        error</a>
+
+    <div id='div_ft4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.3: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_footer_homework: 测试页面底部图标状态</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.4')" >
+        error</a>
+
+    <div id='div_ft4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.4: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_passed_homework: 测试往期作业</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.5')" >
+        error</a>
+
+    <div id='div_ft4.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.5: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_switch_homeworktab: 测试从往期作业切换到当前作业列表页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.6')" >
+        error</a>
+
+    <div id='div_ft4.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.6: [32m2019-09-30 10:04:02[info]:homeWorkTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\homeWorkTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.myclass.myBooksTest.myBooks</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>5</td>
+    <td><a href="javascript:showClassDetail('c5',5)">Detail</a></td>
+</tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_bookdetail_back: 测试教材页面返回按钮</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        error</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.1: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\myBooksTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_bookdetail_enter: 测试进入教材</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        error</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.2: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\myBooksTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_booklist: 测试列表页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.3')" >
+        error</a>
+
+    <div id='div_ft5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.3: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\myBooksTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_enter_mybook: 测试教材列表页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.4')" >
+        error</a>
+
+    <div id='div_ft5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.4: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\myBooksTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_footer_mybook: 测试页面底部图标状态</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.5')" >
+        error</a>
+
+    <div id='div_ft5.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.5: [32m2019-09-30 10:04:02[info]:mybooksTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\myclass\myBooksTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.question.QuestionNewTest.new_question</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_question_reply: 回复提问</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        error</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.1: [32m2019-09-30 10:04:02[info]:NewQuestion.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\question\QuestionNewTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.wordsnote.wordsNoteTest.wordsnote</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c7',3)">Detail</a></td>
+</tr>
+
+<tr id='ft7.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_words_bookList: 飞书下拉列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.1')" >
+        error</a>
+
+    <div id='div_ft7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.1: [32m2019-09-30 10:04:03[info]:wordsNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wordsnote\wordsNoteTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft7.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_words_info: 单词来源--生词详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.2')" >
+        error</a>
+
+    <div id='div_ft7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.2: [32m2019-09-30 10:04:03[info]:wordsNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wordsnote\wordsNoteTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft7.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_words_rankkList: 错词排行榜</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.3')" >
+        error</a>
+
+    <div id='div_ft7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft7.3: [32m2019-09-30 10:04:03[info]:wordsNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wordsnote\wordsNoteTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>class.wrongnote.WrongNoteTest.wrongnote</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td>7</td>
+    <td><a href="javascript:showClassDetail('c8',7)">Detail</a></td>
+</tr>
+
+<tr id='ft8.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_CZ_bookList: 初中英语-飞书列表下拉框切换</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.1')" >
+        error</a>
+
+    <div id='div_ft8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.1: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_CZ_questionsKill: 初中英语-点击消灭错题弹框</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.2')" >
+        error</a>
+
+    <div id='div_ft8.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.2: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_CZ_rankList: 初中英语-排行榜-课程下拉列表-进入页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.3')" >
+        error</a>
+
+    <div id='div_ft8.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.3: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_GZ_bookLIst: 高中英语-书籍列表下拉框切换</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.4')" >
+        error</a>
+
+    <div id='div_ft8.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.4: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_GZ_questionsKill: 高中英语-点击消灭错题弹框</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.5')" >
+        error</a>
+
+    <div id='div_ft8.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.5: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_GZ_rankList: 高中英语-排行榜-课程下拉列表-进入页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.6')" >
+        error</a>
+
+    <div id='div_ft8.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.6: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_class_myWrongNote: 我的错题本</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.7')" >
+        error</a>
+
+    <div id='div_ft8.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.7: [32m2019-09-30 10:04:03[info]:wrongNoteTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\class\wrongnote\WrongNoteTest.py", line 20, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>recommend.book.goPayTest.gopay</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td><a href="javascript:showClassDetail('c9',4)">Detail</a></td>
+</tr>
+
+<tr id='ft9.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_Alipay_pay: 支付宝支付页面跳转</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.1')" >
+        error</a>
+
+    <div id='div_ft9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.1: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\book\goPayTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_WeChat_pay: 微信支付页面跳转</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.2')" >
+        error</a>
+
+    <div id='div_ft9.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.2: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\book\goPayTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_pay_falie: 购买失败，查看订单</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.3')" >
+        error</a>
+
+    <div id='div_ft9.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.3: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\book\goPayTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_recharge: 充值</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.4')" >
+        error</a>
+
+    <div id='div_ft9.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.4: [32m2019-09-30 10:04:03[info]:goStudy.py用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\book\goPayTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>recommend.message.messageTest.message</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='ft10.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_message: 消息页面是否为空</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.1')" >
+        error</a>
+
+    <div id='div_ft10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.1: [32m2019-09-30 10:04:03[info]:messageTest.py 用例开始执行[0m
+Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\recommend\message\messageTest.py", line 18, in setUp
+    self.driver = Caps.set_caps(None)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>user.feedback.feedBackTest.feedback</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c11',3)">Detail</a></td>
+</tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_feedBack1: 不输入手机号，提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        error</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.1: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\feedback\feedBackTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_feedBack2: 输入正确是手机号提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.2')" >
+        error</a>
+
+    <div id='div_ft11.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.2: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\feedback\feedBackTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_feedBack3: 输入错误的手机号提交</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.3')" >
+        error</a>
+
+    <div id='div_ft11.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.3: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\feedback\feedBackTest.py", line 19, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>user.orderlist.orderListTest.orderlist</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c12',2)">Detail</a></td>
+</tr>
+
+<tr id='ft12.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_emptyList: 空页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.1')" >
+        error</a>
+
+    <div id='div_ft12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.1: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\orderlist\orderListTest.py", line 17, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_orderList: 非空页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.2')" >
+        error</a>
+
+    <div id='div_ft12.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.2: Traceback (most recent call last):
+  File "E:\developmentTools\pythonworkspace\up366_app_stu\android_stu\up366_appUI_stu\testCase\user\orderlist\orderListTest.py", line 17, in setUp
+    self.driver = Caps.set_caps(self)
+TypeError: set_caps() missing 2 required positional arguments: 'device' and 'port'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>54</td>
+    <td>0</td>
+    <td>0</td>
+    <td>54</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
